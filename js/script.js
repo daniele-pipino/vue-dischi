@@ -6,6 +6,7 @@ const app = new Vue({
   el: '#app',
   data: {
     musics: '',
+    selectValue: '',
   },
   methods: {
     compare(a, b) {
@@ -17,6 +18,15 @@ const app = new Vue({
       }
       return 0;
     },
+    filterAlbums(song) {
+      if (this.selectValue === '' || this.selectValue === 'All') {
+        return true;
+      }
+      const filter = this.selectValue.trim().toLowerCase();
+      song = song.genre.toLowerCase();
+      return song.includes(filter);
+    }
+
 
   },
   created() {
@@ -25,9 +35,8 @@ const app = new Vue({
       .then((res) => {
         const result = res.data.response;
         this.musics = result;
+        console.log(result);
         result.sort(this.compare);
-        console.log(this.musics);
-
       });
   }
 });

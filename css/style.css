@@ -12,6 +12,11 @@ body {
   padding-top: 100px;
 }
 
+.d-flex{
+  display: flex;
+  justify-content: space-between;
+}
+
 address {
   font-style: normal;
 }
@@ -20,7 +25,7 @@ address {
 
 .container {
   max-width: 1500px;
-  margin: 0 auto;
+  margin-left: 20px;
 }
 
 /* Header */
@@ -73,3 +78,4 @@ header img {
 #album-container .card .year {
   font-size: 16px;
 }
+
